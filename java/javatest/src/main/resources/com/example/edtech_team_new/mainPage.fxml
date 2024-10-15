@@ -133,6 +133,20 @@
             </Label>
          </children>
       </Pane>
+      <Text fill="#f3f7ec" layoutX="468.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count of Sat">
+         <font>
+            <Font name="Segoe UI Bold" size="22.0" />
+         </font>
+      </Text>
+      <Pane layoutX="468.0" layoutY="410.0" prefHeight="40.0" prefWidth="266.0" style="-fx-background-color: #F3F7EC; -fx-background-radius: 10 10 10 10;">
+         <children>
+            <Label fx:id="countofsat" layoutX="14.0" prefHeight="40.0" prefWidth="238.0" text="Label" textAlignment="CENTER" textFill="#005c78">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Text fill="#f3f7ec" layoutX="68.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRESSURE">
          <font>
             <Font name="Segoe UI Bold" size="22.0" />
@@ -178,4 +192,3 @@
       <Button fx:id="refresh_btn" layoutX="734.0" layoutY="17.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10 10 10 10; -fx-background-color: none;" />
    </children>
 </AnchorPane>
-

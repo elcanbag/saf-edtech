@@ -19,4 +19,4 @@ sensors_event_t readGyroAcceleration() {
     return a;
 }
 
-#endif // GYRO_H
+#endif

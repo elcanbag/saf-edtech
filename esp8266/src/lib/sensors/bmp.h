@@ -3,7 +3,6 @@
 
 #include <Adafruit_BMP085_U.h>
 
-// BMP180 sensor setup
 Adafruit_BMP085_Unified bmp;
 
 void setupBMP() {
@@ -25,4 +24,4 @@ float readBMPTemperature() {
     return bmpTemperature;
 }
 
-#endif // BMP_H
+#endif

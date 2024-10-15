@@ -11,7 +11,6 @@ using namespace websockets;
 
 WebsocketsClient webSocket;
 
-// Wi-Fi'ye bağlanma fonksiyonu
 void connectToWiFi(const char* ssid, const char* password) {
     WiFi.begin(ssid, password);
     while (WiFi.status() != WL_CONNECTED) {
@@ -21,7 +20,6 @@ void connectToWiFi(const char* ssid, const char* password) {
     Serial.println("Wi-Fi'ye bağlanıldı");
 }
 
-// WebSocket sunucusuna bağlanma fonksiyonu
 void connectWebSocket(const char* serverUrl) {
     if (webSocket.connect(serverUrl)) {
         Serial.println("WebSocket bağlandı!");
@@ -30,21 +28,17 @@ void connectWebSocket(const char* serverUrl) {
     }
 }
 
-// WebSocket kurulumu
 void setupWebSocket(const char* ssid, const char* password, const char* serverUrl) {
-    connectToWiFi(ssid, password);  // Wi-Fi'ye bağlan
-    connectWebSocket(serverUrl);    // WebSocket sunucusuna bağlan
+    connectToWiFi(ssid, password);
+    connectWebSocket(serverUrl);
 }
 
-// Sensör verilerini WebSocket üzerinden gönderme ve aynı zamanda seri monitöre yazdırma
 void sendData() {
-    // Sensör verilerini oku
     float humidity = readHumidity();
     float temperature = readTemperature();
     float pressure = readPressure();
     sensors_event_t accel = readGyroAcceleration();
 
-    // WebSocket üzerinden verileri gönder ve aynı zamanda seri monitöre yazdır
     if (webSocket.available()) {
         String hum = "hum:" + String(humidity, 2);
         String temp = "temp:" + String(temperature, 2);
@@ -56,8 +50,8 @@ void sendData() {
         String longg = "longg:42.6448998";
         String date = "date:10/02/2024";
         String internalTemp = "internalTemp:25";
+        String countofsat = "countofsat:10";
 
-        // WebSocket üzerinden gönder
         webSocket.send(hum);
         webSocket.send(temp);
         webSocket.send(press);
@@ -69,7 +63,6 @@ void sendData() {
         webSocket.send(date);
         webSocket.send(internalTemp);
 
-        // Seri monitöre yazdır
         Serial.println(hum);
         Serial.println(temp);
         Serial.println(press);
@@ -83,4 +76,4 @@ void sendData() {
     }
 }
 
-#endif // WEBSOCKET_H
+#endif

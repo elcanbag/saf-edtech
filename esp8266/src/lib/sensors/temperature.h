@@ -3,8 +3,8 @@
 
 #include <DHT.h>
 
-#define DHTPIN D5      // DHT11 is connected to pin D5
-#define DHTTYPE DHT11  // We are using the DHT11 sensor
+#define DHTPIN D5
+#define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -20,4 +20,4 @@ float readTemperature() {
     return dht.readTemperature();
 }
 
-#endif // TEMPERATURE_H
+#endif

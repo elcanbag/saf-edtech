@@ -68,6 +68,10 @@ public class MainPageController implements Initializable {
     @FXML
     private Label distance;
 
+    @FXML
+    private Label countofsat;
+
+
     private SimpleWebSocketServer server;
 
     @Override
@@ -136,6 +140,9 @@ public class MainPageController implements Initializable {
                         break;
                     case "pressure":
                         Platform.runLater(()-> pressure.setText(msg[1]));
+                        break;
+                    case "countofsat":
+                        Platform.runLater(()-> countofsat.setText(msg[1]));
                         break;
                     default:
                         System.out.println("Unknown key: " + message);
